@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<!--If using app.UseDefaultFiles() in Startup.cs then we have to name the main page index.html-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/img/icon.jpg" />
+    <link href="~/css/main.css" rel="stylesheet" /> <!--Only works when the file is called 'main.css'-->
+</head>
+
+<body>
+    <div class="main">
+        <div class="overlay">
+            <div class="navbar">
+                <h1>@ViewBag.Header</h1>
+                <menu>
+                    <ul class="menu-items">
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Home" asp-action="Calculator">Calculator</a></li>
+                    </ul>
+                </menu>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <footer>
+        <p>Copywrite Tate Wilks 2021</p>
+    </footer>
+
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/core.js"></script>
+</body>
+</html>

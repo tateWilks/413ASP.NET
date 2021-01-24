@@ -22,3 +22,9 @@
 
 //on change this function will run
 $('.num-input').change(sumEstimate);
+
+$('.num-input').focusout(function() {
+    if (Number($(this).val()) > 100) {
+        $(this).val('100');
+    }
+});

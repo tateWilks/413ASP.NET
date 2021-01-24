@@ -1,6 +1,10 @@
 ﻿:root {
+    /*dark theme*/
     --text-color: rgba(200, 200, 200, 1);
     --background-color: rgba(0, 0, 0, 0.9);
+    /*light theme*/
+    --text-colorL: rgba(0, 0, 0, 1);
+    --background-colorL: rgba(255, 255, 255, 0.8);
 }
 
 body {
@@ -10,10 +14,20 @@ body {
     font-family: Calibri;
 }
 
+.overlay {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
 .section-title {
     text-align: center;
-    border-top: solid 1px var(--text-color);
-    border-bottom: solid 1px var(--text-color);
+    border-top: solid 1px var(--text-colorL);
+    border-bottom: solid 1px var(--text-colorL);
 }
 
 .section-title h1 {
@@ -21,14 +35,43 @@ body {
     margin-bottom: 5px;
 }
 
+menu {
+    margin: 0px;
+    width: 100%;
+    padding-right: 40px;
+}
+
+menu ul {
+    margin: 0px;
+    float: right;
+    list-style-type: none;
+}
+
+menu ul li {
+    display: inline;
+    line-height: 100px;
+    padding-right: 20px;
+}
+
+menu ul li a {
+    text-decoration: none;
+    color: var(--text-colorL);
+    transition: 0.1s;
+}
+
+menu ul li a:hover {
+    color: rgb(128, 128, 128);
+}
+
 .navbar {
-    text-align: center;
     width: 100%;
     position: fixed;
+    display: flex;
+    justify-content: right;
     top: 0;
     left: 0;
     height: 100px;
-    background-color: var(--background-color);
+    background-color: var(--background-colorL);
     /* box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1); */
     color: white;
     font-size: 40px;
@@ -38,6 +81,9 @@ body {
     font-weight: 100;
     margin-top: 0;
     margin-bottom: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: var(--text-colorL);
 }
 
 .main {
@@ -45,14 +91,14 @@ body {
 }
 
 .container {
-    margin-top: 200px;
+    margin-top: 150px;
     width: 1000px;
     margin-right: auto;
     margin-left: auto;
-    background-color: var(--background-color);
+    background-color: var(--background-colorL);
     /* box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1); */
     padding: 20px;
-    color: var(--text-color);
+    color: var(--text-colorL);
 }
 
 .image-info-container {
@@ -73,7 +119,7 @@ img {
 }
 
 .lists h1 {
-    color: var(--text-color);
+    color: var(--text-colorL);
     text-align: center;
     font-size: 40px;
 }
@@ -84,20 +130,18 @@ img {
 }
 
 .calculator {
-    position: fixed;
-    top: 200px;
-    right: 100px;
-    width: 350px;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    /* box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1); */
-    margin-bottom: 10px;
-    margin-top: 10px;
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 150px;
+    justify-content: center;
+    color: var(--text-colorL);
+    background-color: var(--background-colorL);
     padding: 10px;
 }
 
 .labels-inputs label {
-    width: 200px;
+    width: 60%;
     display: inline-block;
     text-align: right;
     padding: 10px;
@@ -105,18 +149,18 @@ img {
 }
 
 .labels-inputs input {
-    width: 75px;
+    width: 30%;
     font-size: 30px;
     border: none !important;
     background-color: rgba(0, 0, 0, 0);
-    color: var(--text-color);
+    color: var(--text-colorL);
     transition: 0.2s;
     border-radius: 2px;
 }
 
 .labels-inputs input:hover {
-    color: black;
-    background-color: var(--text-color);
+    color: var(--background-color);
+    background-color: var(--background-colorL);
 }
 
 .total-calc-container {
@@ -124,11 +168,11 @@ img {
     margin-top: 0;
     margin-bottom: 0;
     display: flex;
-    border-top: solid 1px var(--text-color);
+    border-top: solid 1px var(--text-colorL);
 }
 
 .total-calc-container #p-label {
-    width: 200px;
+    width: 60%;
     margin-top: 0;
     margin-bottom: 0;
     text-align: right; 
@@ -136,7 +180,7 @@ img {
 }
 
 .total-calc-container #total-grade-estimate {
-    width: 50px;
+    width: 30%;
     margin-top: 0;
     margin-bottom: 0;
     padding: 10px;
@@ -150,37 +194,24 @@ img {
 }
 
 .calc-explanation {
-    font-size: 12px;
+    font-size: 19px;
     text-align: justify;
     text-justify: inter-word;
 }
 
-@media screen and (max-width: 1500px) {
-    .calculator {
-        position: initial;
-        width: auto;
-        justify-content: center;
-    }
-    .labels-inputs label {
-        width: 60%;
-    }
-    .labels-inputs input {
-        width: 30%;
-    }
-    .input-containers {
-        width: 50%;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .total-calc-container #p-label {
-        width: 60%;
-    }
-
-    .total-calc-container #total-grade-estimate {
-        width: 30%;
-    }
-    .container {
-        margin-top: 150px;
-    }
+.input-containers {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
+footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    margin: 0px;
+    background-color: var(--background-colorL);
+}

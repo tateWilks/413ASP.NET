@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Grade Calculator";
+    ViewBag.Header = "Calculator";
+}
+
+<body>
+    <div class="calculator">
+        <div class="section-title">
+            <h1>Grade Calculator</h1>
+        </div>
+        <div class="input-containers">
+            <div class="labels-inputs">
+                <label title="Worth 50% of final grade">Assignments</label>
+                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
+            </div>
+            <div class="labels-inputs">
+                <label title="Worth 10% of final grade">Group Projects</label>
+                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
+            </div>
+            <div class="labels-inputs">
+                <label title="Worth 10% of final grade">Quizzes</label>
+                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
+            </div>
+            <div class="labels-inputs">
+                <label title="Worth 20% of final grade">Exams</label>
+                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
+            </div>
+            <div class="labels-inputs">
+                <label title="Worth 10% of final grade">INTEX</label>
+                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
+            </div>
+            <!--</div>-->
+            <!--<div class="prediction">-->
+            <div class="labels-inputs">
+                <div class="total-calc-container">
+                    <p id="p-label">Total: </p>
+                    <p id="total-grade-estimate">0%</p>
+                </div>
+                <div>
+                    <p class="calc-explanation">
+                        Enter your overall grade for each section (i.e. if you scored 100% on all Group Projects, enter 100 in the box) and the calculator will apply the class weights to give you your final grade
+                    </p>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+</body>
