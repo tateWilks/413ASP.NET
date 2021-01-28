@@ -1,4 +1,4 @@
-﻿const getLetterGrade = (score) => {  // y'all really docked 10 (!?) points from assignment 1 for not including this? the disrespect...
+﻿const getLetterGrade = (score) => {  // function to produce the letter grade
     if (score >= 94)
         return 'A';
     else if (score < 94 && score >= 90)
