@@ -6,46 +6,51 @@
     ViewBag.Header = "Calculator";
 }
 
+@model AboutMe.Models.Calculator
+
 <body>
     <div class="calculator">
         <div class="section-title">
             <h1>Grade Calculator</h1>
         </div>
         <div class="input-containers">
-            <div class="labels-inputs">
-                <label title="Worth 50% of final grade">Assignments</label>
-                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
-            </div>
-            <div class="labels-inputs">
-                <label title="Worth 10% of final grade">Group Projects</label>
-                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
-            </div>
-            <div class="labels-inputs">
-                <label title="Worth 10% of final grade">Quizzes</label>
-                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
-            </div>
-            <div class="labels-inputs">
-                <label title="Worth 20% of final grade">Exams</label>
-                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
-            </div>
-            <div class="labels-inputs">
-                <label title="Worth 10% of final grade">INTEX</label>
-                <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" />
-            </div>
-            <!--</div>-->
-            <!--<div class="prediction">-->
-            <div class="labels-inputs">
-                <div class="total-calc-container">
-                    <p id="p-label">Total: </p>
-                    <p id="total-grade-estimate">0%</p>
+            <form id="calc-form" method="post" asp-action="Calculator">
+                <div class="labels-inputs">
+                    <label title="Worth 50% of final grade">Assignments</label>
+                    <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" asp-for="Assignments" id="assignments" />@Html.ValidationMessageFor(model => model.Assignments)
                 </div>
-                <div>
-                    <p class="calc-explanation">
-                        Enter your overall grade for each section (i.e. if you scored 100% on all Group Projects, enter 100 in the box) and the calculator will apply the class weights to give you your final grade
-                    </p>
+                <div class="labels-inputs">
+                    <label title="Worth 10% of final grade">Group Projects</label>
+                    <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" asp-for="GroupProjects" id="gProjects" />@Html.ValidationMessageFor(model => model.GroupProjects)
                 </div>
-            </div>
-            <!--</div>-->
+                <div class="labels-inputs">
+                    <label title="Worth 10% of final grade">Quizzes</label>
+                    <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" asp-for="Quizzes" id="quizzes" />@Html.ValidationMessageFor(model => model.Quizzes)
+                </div>
+                <div class="labels-inputs">
+                    <label title="Worth 20% of final grade">Exams</label>
+                    <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" asp-for="Exams" id="exams" />@Html.ValidationMessageFor(model => model.Exams)
+                </div>
+                <div class="labels-inputs">
+                    <label title="Worth 10% of final grade">INTEX</label>
+                    <input type="number" step="1" min="0" max="100" placeholder="0" class="num-input" asp-for="Intex" id="intex" />@Html.ValidationMessageFor(model => model.Intex)
+                </div>
+                <!--</div>-->
+                <!--<div class="prediction">-->
+                <div class="labels-inputs">
+                    <div class="total-calc-container">
+                        <p id="p-label">Total </p>
+                        <p id="total-grade-estimate">0%</p>
+                    </div>
+                    <div>
+                        <p class="calc-explanation">
+                            Enter your overall grade for each section (i.e. if you scored 100% on all Group Projects, enter 100 in the box) and the calculator will apply the class weights to give you your final grade
+                        </p>
+                    </div>
+                </div>
+                <!--</div>-->
+                <button type="submit" value="Submit" id="btn-submit-calc">Store Grade</button>
+            </form>
         </div>
     </div>
 </body>
